@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import { RaisedButton, Dialog, FlatButton } from 'material-ui';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
 import Link from '../Link';
@@ -16,6 +17,17 @@ import logoUrl from './logo-small.png';
 import logoUrl2x from './logo-small@2x.png';
 
 class Header extends React.Component {
+  constructor(properties) {
+    super(properties);
+    this.state = {
+      open: false,
+    };
+  }
+  handleClick = () =>
+    this.setState({
+      open: true,
+    });
+
   render() {
     return (
       <div className={s.root}>
@@ -33,7 +45,28 @@ class Header extends React.Component {
           </Link>
           <div className={s.banner}>
             <h1 className={s.bannerTitle}>React</h1>
+
             <p className={s.bannerDesc}>Complex web apps made easy</p>
+            <RaisedButton label="Default" />
+            <RaisedButton
+              label="Super Secret Password"
+              secondary
+              onClick={this.handleClick}
+            />
+            <Dialog
+              open={this.state.open}
+              title="Super Secret Password"
+              actions={
+                <FlatButton
+                  label="Ok"
+                  primary
+                  onClick={this.handleRequestClose}
+                />
+              }
+              onRequestClose={this.handleRequestClose}
+            >
+              1-2-3-4-5
+            </Dialog>
           </div>
         </div>
       </div>

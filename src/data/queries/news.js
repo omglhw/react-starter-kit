@@ -12,9 +12,10 @@ import fetch from 'node-fetch';
 import NewsItemType from '../types/NewsItemType';
 
 // React.js News Feed (RSS)
-const url =
-  'https://api.rss2json.com/v1/api.json' +
-  '?rss_url=https%3A%2F%2Freactjsnews.com%2Ffeed.xml';
+// const url =
+//   'https://api.rss2json.com/v1/api.json' +
+//   '?rss_url=https%3A%2F%2Freactjsnews.com%2Ffeed.xml';
+const url = 'http://10.118.41.21/api.json';
 
 let items = [];
 let lastFetchTask;

@@ -31,9 +31,15 @@ module.exports = {
       process.env.API_SERVER_URL ||
       `http://localhost:${process.env.PORT || 3000}`,
   },
-
+  mysql: {
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: '123456',
+    database: 'rskdb',
+  },
   // Database
-  databaseUrl: process.env.DATABASE_URL || 'sqlite:database.sqlite',
+  // databaseUrl: process.env.DATABASE_URL || 'sqlite:database.sqlite',
 
   // Web analytics
   analytics: {

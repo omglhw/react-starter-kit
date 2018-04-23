@@ -21,6 +21,8 @@
     "history": "^4.7.2",
     "isomorphic-style-loader": "^4.0.0",
     "jsonwebtoken": "^8.2.1",
+    "material-ui": "^0.20.0",
+    "mysql2": "^1.5.3",
     "node-fetch": "^2.1.2",
     "normalize.css": "^8.0.0",
     "passport": "^0.4.0",
@@ -33,7 +35,6 @@
     "sequelize": "^4.37.6",
     "serialize-javascript": "^1.4.0",
     "source-map-support": "^0.5.4",
-    "sqlite3": "^4.0.0",
     "universal-router": "^6.0.0",
     "whatwg-fetch": "^2.0.4"
   },

@@ -9,6 +9,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { deepOrange500 } from 'material-ui/styles/colors';
 
 const ContextType = {
   // Enables critical path CSS rendering
@@ -49,7 +52,16 @@ class App extends React.PureComponent {
   };
 
   static childContextTypes = ContextType;
+  constructor(properties) {
+    super(properties);
 
+    this.muiTheme = getMuiTheme({
+      palette: {
+        accent1Color: deepOrange500,
+      },
+      userAgent: properties.userAgent,
+    });
+  }
   getChildContext() {
     return this.props.context;
   }
@@ -57,7 +69,11 @@ class App extends React.PureComponent {
   render() {
     // NOTE: If you need to add or modify header, footer etc. of the app,
     // please do that inside the Layout component.
-    return React.Children.only(this.props.children);
+    return (
+      <MuiThemeProvider muiTheme={this.muiTheme}>
+        {React.Children.only(this.props.children)}
+      </MuiThemeProvider>
+    );
   }
 }
 

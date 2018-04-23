@@ -159,7 +159,9 @@ app.get('*', async (req, res, next) => {
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(
-      <App context={context}>{route.component}</App>,
+      <App context={context} userAgent={req.headers['user-agent']}>
+        {route.component}
+      </App>,
     );
     data.styles = [{ id: 'css', cssText: [...css].join('') }];
 
@@ -179,7 +181,6 @@ app.get('*', async (req, res, next) => {
     data.app = {
       apiUrl: config.api.clientUrl,
     };
-
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
     res.status(route.status || 200);
     res.send(`<!doctype html>${html}`);
