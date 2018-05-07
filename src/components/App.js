@@ -9,6 +9,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Provider as ReduxProvider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { deepOrange500 } from 'material-ui/styles/colors';
@@ -21,6 +22,9 @@ const ContextType = {
   fetch: PropTypes.func.isRequired,
   pathname: PropTypes.string.isRequired,
   query: PropTypes.object,
+  // Integrate Redux
+  // http://redux.js.org/docs/basics/UsageWithReact.html
+  ...ReduxProvider.childContextTypes,
 };
 
 /**
