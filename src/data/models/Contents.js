@@ -22,6 +22,7 @@ for (let i = 0; i < contentTableSize; i += 1) {
     },
     title: {
       type: DataType.STRING(255),
+      comment: '内容标题',
     },
     content: {
       type: DataType.TEXT,

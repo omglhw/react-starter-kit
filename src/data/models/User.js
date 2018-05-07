@@ -13,24 +13,52 @@ import Model from '../sequelize';
 const User = Model.define(
   'User',
   {
-    id: {
+    userId: {
       type: DataType.UUID,
       defaultValue: DataType.UUIDV1,
       primaryKey: true,
     },
-
-    email: {
-      type: DataType.STRING(255),
-      validate: { isEmail: true },
+    userName: {
+      type: DataType.STRING(20),
+      allowNull: false,
+      comment: '用户名称',
     },
-
-    emailConfirmed: {
+    userAccount: {
+      type: DataType.STRING(50),
+      unique: true,
+      allowNull: false,
+      validate: {
+        is: {
+          args: /^[0-9a-zA-Z_]{1,}$/,
+          msg: '数字、26个英文字母或者下划线',
+        },
+      },
+      comment: '用户账号',
+    },
+    userPassword: {
+      type: DataType.STRING(50),
+      unique: true,
+      allowNull: false,
+      comment: '用户密码',
+    },
+    userEmail: {
+      type: DataType.STRING(100),
+      validate: { isEmail: true },
+      unique: true,
+      comment: '用户邮箱',
+    },
+    userPhone: {
+      type: DataType.STRING(20),
+      comment: '用户手机',
+    },
+    userDisabled: {
       type: DataType.BOOLEAN,
       defaultValue: false,
+      comment: '是否禁用',
     },
   },
   {
-    indexes: [{ fields: ['email'] }],
+    indexes: [{ fields: ['userEmail'] }],
   },
 );
 
