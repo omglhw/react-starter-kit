@@ -1,53 +1,33 @@
 /**
  * by huiwu
- * 产品表
+ * blog表
  */
 
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
-const Products = Model.define('Products', {
-  productId: {
+const Blogs = Model.define('Blogs', {
+  blogsId: {
     type: DataType.UUID,
     defaultValue: DataType.UUIDV1,
     primaryKey: true,
   },
-  productName: {
+  blogTitle: {
     type: DataType.STRING(255),
-    comment: '产品名称',
+    comment: 'blog名称',
     allowNull: false,
-    unique: true,
   },
-  productUrl: {
+  subBlogTitle: {
     type: DataType.STRING(255),
-    comment: '产品url',
+    comment: '子blog名称',
   },
-  productMainPic: {
-    type: DataType.STRING(255),
-    comment: '产品图片',
-  },
-  productPicList: {
-    type: DataType.STRING(255),
-    comment: '产品图片',
-  },
-  productDetail: {
+  blogDetail: {
     type: DataType.STRING(500),
-    comment: '产品简介',
+    comment: 'blog简介',
   },
-  productContent: {
+  blogContent: {
     type: DataType.TEXT,
-    comment: '产品内容',
-  },
-
-  Price: {
-    type: DataType.DECIMAL,
-    comment: '原价',
-    defaultValue: 0,
-  },
-  discountedPrice: {
-    type: DataType.DECIMAL,
-    comment: '优惠价',
-    defaultValue: 0,
+    comment: 'blog内容',
   },
   siteSeoKeyword: {
     type: DataType.STRING(100),
@@ -78,4 +58,4 @@ const Products = Model.define('Products', {
   },
 });
 
-export default Products;
+export default Blogs;

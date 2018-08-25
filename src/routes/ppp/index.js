@@ -8,18 +8,18 @@
  */
 
 import React from 'react';
-import AdminLayout from '../../components/AdminLayout';
+import Layout from '../../components/Layout';
 import Page from '../../components/Page';
-import about from './about.md';
+import privacy from './privacy.md';
 
 function action() {
   return {
-    chunks: ['about'],
-    title: about.title,
+    chunks: ['ppp'],
+    title: privacy.title,
     component: (
-      <AdminLayout>
-        <Page {...about} />
-      </AdminLayout>
+      <Layout>
+        <Page {...privacy} />
+      </Layout>
     ),
   };
 }

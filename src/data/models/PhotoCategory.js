@@ -6,8 +6,8 @@
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
-const Category = Model.define('Category', {
-  categoryId: {
+const PhotoCategory = Model.define('PhotoCategory', {
+  phtCateId: {
     type: DataType.UUID,
     defaultValue: DataType.UUIDV1,
     primaryKey: true,
@@ -33,12 +33,12 @@ const Category = Model.define('Category', {
   sortNo: {
     type: DataType.INTEGER,
     defaultValue: 0,
-    set(val) {
-      console.log('setsetsetsdrt11', val, this);
-      this.setDataValue('sortNo', val);
-    },
+    // set(val) {
+    //   console.log(val, this);
+    //   this.setDataValue('sortNo', val);
+    // },
     comment: '排序',
   },
 });
 
-export default Category;
+export default PhotoCategory;

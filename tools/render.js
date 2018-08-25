@@ -28,6 +28,7 @@ const routes = [
   '/register',
   '/about',
   '/privacy',
+  '/ppp',
   '/404', // https://help.github.com/articles/creating-a-custom-404-page-for-your-github-pages-site/
 ];
 

@@ -1,61 +1,36 @@
 /**
  * by huiwu
- * 产品表
+ * 图片表
  */
 
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
-const Products = Model.define('Products', {
-  productId: {
+const Photos = Model.define('Photos', {
+  photoId: {
     type: DataType.UUID,
     defaultValue: DataType.UUIDV1,
     primaryKey: true,
   },
-  productName: {
+  photoName: {
     type: DataType.STRING(255),
-    comment: '产品名称',
+    comment: '图片名称',
     allowNull: false,
     unique: true,
   },
-  productUrl: {
+  photoUrl: {
     type: DataType.STRING(255),
-    comment: '产品url',
+    allowNull: false,
+    unique: true,
+    comment: '图片url',
   },
-  productMainPic: {
-    type: DataType.STRING(255),
-    comment: '产品图片',
-  },
-  productPicList: {
-    type: DataType.STRING(255),
-    comment: '产品图片',
-  },
-  productDetail: {
+  photoDetail: {
     type: DataType.STRING(500),
-    comment: '产品简介',
+    comment: '图片简介',
   },
-  productContent: {
-    type: DataType.TEXT,
-    comment: '产品内容',
-  },
-
-  Price: {
-    type: DataType.DECIMAL,
-    comment: '原价',
-    defaultValue: 0,
-  },
-  discountedPrice: {
-    type: DataType.DECIMAL,
-    comment: '优惠价',
-    defaultValue: 0,
-  },
-  siteSeoKeyword: {
+  photoKeyword: {
     type: DataType.STRING(100),
     comment: '关键字',
-  },
-  siteSeoDescription: {
-    type: DataType.STRING(250),
-    comment: '描述',
   },
   isShow: {
     type: DataType.BOOLEAN,
@@ -78,4 +53,4 @@ const Products = Model.define('Products', {
   },
 });
 
-export default Products;
+export default Photos;

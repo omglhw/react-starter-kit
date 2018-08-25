@@ -1,24 +1,26 @@
 /**
  * by huiwu
- * 分类表
+ * tag表
  */
 
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
-const Category = Model.define('Category', {
-  categoryId: {
+const Tags = Model.define('Tags', {
+  tagsId: {
     type: DataType.UUID,
     defaultValue: DataType.UUIDV1,
     primaryKey: true,
   },
-  parentId: {
-    type: DataType.UUID,
-    comment: '父级ID',
-  },
-  categoryName: {
+  tagName: {
     type: DataType.STRING(255),
-    comment: '分类名称',
+    comment: 'tag名称',
+    allowNull: false,
+    unique: true,
+  },
+  tagDetail: {
+    type: DataType.STRING(500),
+    comment: 'tag简介',
   },
   isShow: {
     type: DataType.BOOLEAN,
@@ -33,12 +35,12 @@ const Category = Model.define('Category', {
   sortNo: {
     type: DataType.INTEGER,
     defaultValue: 0,
-    set(val) {
-      console.log('setsetsetsdrt11', val, this);
-      this.setDataValue('sortNo', val);
-    },
+    // set(val) {
+    //   console.log(val, this);
+    //   this.setDataValue('sortNo', val);
+    // },
     comment: '排序',
   },
 });
 
-export default Category;
+export default Tags;

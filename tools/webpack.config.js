@@ -62,6 +62,9 @@ const config = {
   },
 
   resolve: {
+    alias: {
+      src: SRC_DIR,
+    },
     // Allow absolute paths in imports, e.g. import Button from 'components/Button'
     // Keep in sync with .flowconfig and .eslintrc
     modules: ['node_modules', 'src'],
@@ -146,6 +149,7 @@ const config = {
           {
             include: SRC_DIR,
             loader: 'css-loader',
+
             options: {
               // CSS Loader https://github.com/webpack/css-loader
               importLoaders: 1,

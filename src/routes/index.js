@@ -40,10 +40,17 @@ const routes = {
       load: () => import(/* webpackChunkName: 'privacy' */ './privacy'),
     },
     {
+      path: '/ppp',
+      load: () => import(/* webpackChunkName: 'ppp' */ './ppp'),
+    },
+    {
+      path: '/admin/tags',
+      load: () => import(/* webpackChunkName: 'admin/tags' */ './admin/tags'),
+    },
+    {
       path: '/admin',
       load: () => import(/* webpackChunkName: 'admin' */ './admin'),
     },
-
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {
       path: '(.*)',

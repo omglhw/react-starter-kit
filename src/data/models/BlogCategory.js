@@ -1,13 +1,13 @@
 /**
  * by huiwu
- * 分类表
+ * blog分类表
  */
 
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
-const Category = Model.define('Category', {
-  categoryId: {
+const BlogCategory = Model.define('BlogCategory', {
+  blogCategoryId: {
     type: DataType.UUID,
     defaultValue: DataType.UUIDV1,
     primaryKey: true,
@@ -16,7 +16,7 @@ const Category = Model.define('Category', {
     type: DataType.UUID,
     comment: '父级ID',
   },
-  categoryName: {
+  blogCategoryName: {
     type: DataType.STRING(255),
     comment: '分类名称',
   },
@@ -33,12 +33,12 @@ const Category = Model.define('Category', {
   sortNo: {
     type: DataType.INTEGER,
     defaultValue: 0,
-    set(val) {
-      console.log('setsetsetsdrt11', val, this);
-      this.setDataValue('sortNo', val);
-    },
+    // set(val) {
+    //   console.log(val, this);
+    //   this.setDataValue('sortNo', val);
+    // },
     comment: '排序',
   },
 });
 
-export default Category;
+export default BlogCategory;
